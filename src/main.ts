@@ -1,4 +1,9 @@
 import { createApp } from "vue";
+import CounterStore from "./stores/CounterStore";
 import App from "./App.vue";
 
-createApp(App).mount("#app");
+const app = createApp(App);
+
+app.use(CounterStore);
+
+app.mount("#app");
