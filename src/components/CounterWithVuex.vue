@@ -8,19 +8,18 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { mapGetters } from "vuex";
 
 export default defineComponent({
   computed: {
-    count() {
-      return this.$store.state.count;
-    },
+    ...mapGetters("CounterStore", ["count"]),
   },
   methods: {
     increment() {
-      this.$store.commit("increment");
+      this.$store.commit("CounterStore/increment");
     },
     decrement() {
-      this.$store.commit("decrement");
+      this.$store.commit("CounterStore/decrement");
     },
   },
 });
